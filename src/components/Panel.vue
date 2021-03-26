@@ -1,7 +1,7 @@
 <template>
     <div class="bg-light">
         <div class="sticky-top">
-            <nav class="navbar navbar-dark bg-primary">
+            <nav class="navbar navbar-dark bg-info">
                 <span class="navbar-brand mb-0 h1">Produtos e Marcas</span>
             </nav>        
         </div>
@@ -16,11 +16,11 @@
                             <label>Nome:</label>
                             <input type="text" class="form-control" >
                         </p>            
-                        <button type="submit" class="btn btn-success">Adicionar</button>                        
+                        <button type="submit" class="btn btn-success">Salvar</button>                        
                     </div>
                 </form>
 
-                <form action="" class="col-8 py-3">
+                <form action="" class="col-8 pr-1 py-3">
                     <div class="form-todo form-group">                                    
                         <h4>Produtos</h4>
                         <div class="input-group mb-3">
@@ -33,34 +33,30 @@
                                 <option value="2">Two</option>
                                 <option value="3">Three</option>
                             </select>
-                        </div>
-                        
+                        </div>                    
                         <p>
                             <label>Modelo:</label>
                             <input type="text" class="form-control" >
                         </p>
-
                         <p>
                             <label>Tipo:</label>
                             <input type="text" class="form-control" >
                         </p>
-
                         <p>
                             <label>Preço:</label>
                             <input type="text" class="form-control" >
                         </p>            
-
                         <p>
                         <label>Descrições do produto:</label>
                         <textarea name="" class="form-control" ></textarea>
                         </p>
-                        <button type="submit" class="btn btn-success">Adicionar</button>                                            
+                        <button type="submit" class="btn btn-success">Salvar</button>                                            
                     </div>
                 </form>
             </div>
             <hr>
             <h4>Itens Salvos</h4>
-            <div class="form-group">
+            <div class="">
                 <table class="table table-secondary">
                 <thead>
                     <tr>
@@ -70,15 +66,20 @@
                         <th scope="col">Tipo</th>
                         <th scope="col">Preço</th>
                         <th scope="col">Descrições</th>
+                        <th scope="col">Opções</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
+                        <td>Dell</td>
+                        <td>Inspiron 7559</td>
+                        <td>Notebook</td>
+                        <td>3000</td>
+                        <td>Bom custo x benefício</td>
+                        <td class="btn-group">
+                            <button class="btn btn-sm btn-primary" type="button">Editar</button>
+                            <button class="btn btn-sm btn-danger" type="button">Deletar</button>
+                        </td>
                     </tr>
                     
                 </tbody>
