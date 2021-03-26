@@ -9,58 +9,41 @@
         
         <div class="container">
             <div class="row bg-ligth">
-                <form action="" class="col-4 py-3">
-                    <div class="form-todo form-group">
-                        <h4>Marcas</h4>
-                        <p>
-                            <label>Nome:</label>
-                            <input type="text" class="form-control" >
-                        </p>            
-                        <button type="submit" class="btn btn-success">Salvar</button>                        
-                    </div>
-                </form>
-
-                <form action="" class="col-8 pr-1 py-3">
+                <form class="col">
                     <div class="form-todo form-group">                                    
-                        <h4>Produtos</h4>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <label class="input-group-text" for="inputGroupSelect01">Marca</label>
-                            </div>
-                            <select class="custom-select" id="inputGroupSelect01">
-                                <option selected>Escolha...</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                        </div>                    
+                        <h4>Insira as informações do Produto</h4>                       
+                        <p>
+                            <label>Marca:</label>
+                            <input id="input-brand" v-model="brand" type="text" required class="form-control" >
+                        </p>                    
                         <p>
                             <label>Modelo:</label>
-                            <input type="text" class="form-control" >
+                            <input id="input-model" v-model="model" type="text" required class="form-control" >
                         </p>
                         <p>
                             <label>Tipo:</label>
-                            <input type="text" class="form-control" >
+                            <input id="input-type" v-model="type" type="text" required class="form-control" >
                         </p>
                         <p>
                             <label>Preço:</label>
-                            <input type="text" class="form-control" >
+                            <input id="input-price" v-model="price" type="text" required class="form-control" >
                         </p>            
                         <p>
                         <label>Descrições do produto:</label>
-                        <textarea name="" class="form-control" ></textarea>
+                        <textarea id="input-description" v-model="description" name="" class="form-control" ></textarea>
                         </p>
-                        <button type="submit" class="btn btn-success">Salvar</button>                                            
+                        <div class="btn-group">
+                            <button v-on:click="addProduct" type="submit" class="btn btn-success">Salvar</button>                            
+                        </div>
                     </div>
                 </form>
             </div>
             <hr>
             <h4>Itens Salvos</h4>
-            <div class="">
+            <div class="list-group" v-for="(product, index) in products" v-bind:key="index">
                 <table class="table table-secondary">
                 <thead>
                     <tr>
-                        
                         <th scope="col">Marca</th>
                         <th scope="col">Modelo</th>
                         <th scope="col">Tipo</th>
@@ -71,17 +54,16 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Dell</td>
-                        <td>Inspiron 7559</td>
-                        <td>Notebook</td>
-                        <td>3000</td>
-                        <td>Bom custo x benefício</td>
+                        <td>{{ product.brand }}</td>
+                        <td>{{ product.model }}</td>
+                        <td>{{ product.type }}</td>
+                        <td>{{ product.price }}</td>
+                        <td>{{ product.description }}</td>
                         <td class="btn-group">
-                            <button class="btn btn-sm btn-primary" type="button">Editar</button>
-                            <button class="btn btn-sm btn-danger" type="button">Deletar</button>
+                            <!-- <button v-show="update" v-on:click="onUpdate" class="btn btn-sm btn-primary" type="button">Atualizar</button> -->
+                            <button title="Deletar" v-on:click.prevent="removeProduct(index)" class="btn btn-sm btn-danger" type="button">Deletar</button>
                         </td>
-                    </tr>
-                    
+                    </tr>                    
                 </tbody>
                 </table>
             </div>
@@ -92,49 +74,51 @@
 </template>
 
 <script>
-import Produto from './services/produtos'
-    export default{
-        mounted(){
-            Produto.listar().then(resposta => {
-                console.log(resposta)
-            })
+export default {
+    data() {
+        return {
+            products: [
+                {                    
+                    brand: 'Dell',
+                    model: 'Inspiron 7559',
+                    type: 'Notebook',
+                    price: '3000',
+                    description: 'Bom custo x benefício'
+                }
+            ],
+            brand: '',
+            model: '',
+            type: '',
+            price: '',
+            description: ''
         }
-    }
-    // data() {
-    //     return {
-    //         comments: [
-    //             {
-    //                 name: 'Zé',
-    //                 message: 'Teste 1'
-    //             }
-    //         ],
-    //         // Aqui guarda os valores inseridos no formulário
-    //         name: '',
-    //         message: ''
+    },
 
-    //     }
-    // },
-    // methods: {
-    //     addComment() {   
-    //         if (this.name.trim() === '' || this.message.trim() === '') {
-    //             return;
-    //         }
+    methods: {
+        addProduct() {   
+            if (this.brand.trim() === '' || this.model.trim() === '' || this.type.trim() === ''
+            || this.price.trim() === '' || this.description.trim() === '') {
+                return;
+            }
             
-    //         this.comments.push({
-    //             name: this.name,
-    //             message: this.message
-    //         });
-    //         // Aqui apaga os dados digitados após enviá-los ao formulário
-    //         this.name = '';
-    //         this.message = '';
-    //     },
-    //     removeComment(index) {
-    //         this.comments.splice(index, 1);
-    //     }
-    // },
-    // // Criar relação do Watch com o timestamp do BD
-    // watch: {
-
-    // }
+            this.products.push({
+                brand: this.brand,
+                model: this.model,
+                type: this.type,
+                price: this.price,
+                description: this.description
+            });
+            // Aqui apaga os dados digitados após enviá-los ao formulário
+            this.brand = '';
+            this.model = '';
+            this.type = '';
+            this.price = '';
+            this.description = '';
+        },
+        removeProduct(index) {
+            this.products.splice(index, 1);
+        }
+    },
+}
 
 </script>
