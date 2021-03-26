@@ -1,29 +1,71 @@
 <template>
     <div class="container">
-        <h1>Produtos</h1>
-        <hr>
+        <div class="fixed-top">
+            <nav class="navbar navbar-dark bg-primary">
+                <span class="navbar-brand mb-0 h1">Produtos e Marcas</span>
+            </nav>        
+        </div>
+        
+        <div class="form-todo form-group">
+            <h4>Marcas</h4>
+            <p>
+                <label>Nome:</label>
+                <input type="text" class="form-control" >
+            </p>            
+            <button type="submit" class="btn btn-success">Enviar</button>
+            <hr>
+        </div>
 
         <div class="form-todo form-group">
-
-
-
-        </div>
-
-        <hr>
-        <div class="form-todo form-group">
+            <h4>Produtos</h4>
+        
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Marca</label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01">
+                    <option selected>Escolha...</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+            </div>
+             
             <p>
-                <input type="text" placeholder="Nome" name="nome" class="form-control" >
+                <label>Modelo:</label>
+                <input type="text" class="form-control" >
             </p>
+
             <p>
-                <textarea placeholder="Comente aqui" name="message" class="form-control" ></textarea>
+                <label>Tipo:</label>
+                <input type="text" class="form-control" >
             </p>
-            <button type="submit" class="btn btn-primary">Enviar</button>
+
+            <p>
+                <label>Preço:</label>
+                <input type="text" class="form-control" >
+            </p>            
+
+            <p>
+            <label>Descrições:</label>
+            <textarea name="" class="form-control" ></textarea>
+            </p>
+            <button type="submit" class="btn btn-success">Enviar</button>
+            <hr>
         </div>
-        <div class="list-group" >
-            
+
+        <div class="form-group">
+            <ul class="list-group list-group-horizontal">
+                <li class="list-group-item">An item</li>
+                <li class="list-group-item">A second item</li>
+                <li class="list-group-item">A third item</li>
+            </ul>
+
         </div>
-        <hr>
     </div>
+
+    
+
 </template>
 
 <script>
