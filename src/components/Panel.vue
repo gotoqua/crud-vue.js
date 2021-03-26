@@ -1,69 +1,73 @@
 <template>
-    <div class="container">
-        <div class="fixed-top">
+    <div>
+        <div class="sticky-top">
             <nav class="navbar navbar-dark bg-primary">
                 <span class="navbar-brand mb-0 h1">Produtos e Marcas</span>
             </nav>        
         </div>
-        
-        <div class="form-todo form-group">
-            <h4>Marcas</h4>
-            <p>
-                <label>Nome:</label>
-                <input type="text" class="form-control" >
-            </p>            
-            <button type="submit" class="btn btn-success">Enviar</button>
-            <hr>
-        </div>
-
-        <div class="form-todo form-group">
-            <h4>Produtos</h4>
-        
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect01">Marca</label>
+        <br>
+        <div class="container">
+            <form action="" class="px-4 py-3">
+                <div class="form-todo form-group">
+                    <h4>Marcas</h4>
+                    <p>
+                        <label>Nome:</label>
+                        <input type="text" class="form-control" >
+                    </p>            
+                    <button type="submit" class="btn btn-success">Adicionar</button>
+                    <hr>
                 </div>
-                <select class="custom-select" id="inputGroupSelect01">
-                    <option selected>Escolha...</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                </select>
+            </form>
+
+            <form action="" class="px-4 py-3">
+                <div class="form-todo form-group">                                    
+                    <h4>Produtos</h4>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="inputGroupSelect01">Marca</label>
+                        </div>
+                        <select class="custom-select" id="inputGroupSelect01">
+                            <option selected>Escolha...</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                    
+                    <p>
+                        <label>Modelo:</label>
+                        <input type="text" class="form-control" >
+                    </p>
+
+                    <p>
+                        <label>Tipo:</label>
+                        <input type="text" class="form-control" >
+                    </p>
+
+                    <p>
+                        <label>Preço:</label>
+                        <input type="text" class="form-control" >
+                    </p>            
+
+                    <p>
+                    <label>Descrições do produto:</label>
+                    <textarea name="" class="form-control" ></textarea>
+                    </p>
+                    <button type="submit" class="btn btn-success">Adicionar</button>
+                    <hr>                    
+                </div>
+            </form>
+
+            <div class="form-group">
+                <ul class="list-group list-group-horizontal">
+                    <li class="list-group-item">An item</li>
+                    <li class="list-group-item">A second item</li>
+                    <li class="list-group-item">A third item</li>
+                </ul>
+
             </div>
-             
-            <p>
-                <label>Modelo:</label>
-                <input type="text" class="form-control" >
-            </p>
-
-            <p>
-                <label>Tipo:</label>
-                <input type="text" class="form-control" >
-            </p>
-
-            <p>
-                <label>Preço:</label>
-                <input type="text" class="form-control" >
-            </p>            
-
-            <p>
-            <label>Descrições:</label>
-            <textarea name="" class="form-control" ></textarea>
-            </p>
-            <button type="submit" class="btn btn-success">Enviar</button>
-            <hr>
-        </div>
-
-        <div class="form-group">
-            <ul class="list-group list-group-horizontal">
-                <li class="list-group-item">An item</li>
-                <li class="list-group-item">A second item</li>
-                <li class="list-group-item">A third item</li>
-            </ul>
-
         </div>
     </div>
-
     
 
 </template>
