@@ -92,8 +92,14 @@
 </template>
 
 <script>
-
-    
+import Produto from './services/produtos'
+    export default{
+        mounted(){
+            Produto.listar().then(resposta => {
+                console.log(resposta)
+            })
+        }
+    }
     // data() {
     //     return {
     //         comments: [
